@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { guides } from "@/data/guides";
 import { categories } from "@/data/categories";
-import { getProductsByCategory } from "@/data/products";
+import { getProductsByCategory, getAmazonUrl } from "@/data/products";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 
@@ -447,7 +447,7 @@ export default async function GuidePage({
                         {p.name}
                       </p>
                       <a
-                        href={`https://www.amazon.com/dp/${p.asin}?tag=YOURTAG-20`}
+                        href={getAmazonUrl(p.asin)}
                         target="_blank"
                         rel="noopener noreferrer sponsored"
                         className="inline-flex items-center gap-1 text-[12px] text-[#5B7561] dark:text-[#8AA391] hover:underline"

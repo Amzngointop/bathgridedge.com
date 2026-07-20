@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { categories } from "@/data/categories";
-import { getProductsByCategory } from "@/data/products";
+import { getProductsByCategory, getAmazonUrl } from "@/data/products";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import FadeUp from "@/components/FadeUp";
 import ProductCard from "@/components/ProductCard";
@@ -117,7 +117,7 @@ export default async function BestCategoryPage({
                   </td>
                   <td className="py-3 px-3 pr-0">
                     <a
-                      href={`https://www.amazon.com/dp/${p.asin}?tag=YOURTAG-20`}
+                      href={getAmazonUrl(p.asin)}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
                       className="inline-flex items-center gap-0.5 text-[#5B7561] dark:text-[#8AA391] hover:text-[#3A4D40] dark:hover:text-[#A6BCA9] transition-colors"
@@ -204,7 +204,7 @@ export default async function BestCategoryPage({
                   </p>
 
                   <a
-                    href={`https://www.amazon.com/dp/${product.asin}?tag=YOURTAG-20`}
+                    href={getAmazonUrl(product.asin)}
                     target="_blank"
                     rel="noopener noreferrer sponsored"
                     className="inline-flex items-center gap-1 text-sm text-[#5B7561] dark:text-[#8AA391] hover:text-[#3A4D40] dark:hover:text-[#A6BCA9] transition-colors"

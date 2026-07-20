@@ -1,4 +1,4 @@
-import { Product } from "@/data/products";
+import { Product, getAmazonUrl } from "@/data/products";
 import { ArrowUpRight } from "lucide-react";
 import { categories } from "@/data/categories";
 
@@ -19,7 +19,7 @@ function getCategoryShortName(slug: string): string {
          title upgraded to text-lg, label strip padding increased.
 */
 export default function ProductCard({ product }: Props) {
-  const amazonUrl = `https://www.amazon.com/dp/${product.asin}?tag=YOURTAG-20`;
+  const amazonUrl = getAmazonUrl(product.asin);
   const categoryLabel = getCategoryShortName(product.categorySlug);
 
   return (
